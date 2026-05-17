@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 语音输入</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI 语音输入</p>
+            <h1>说完就变成可用文字</h1>
+          </div>
+          <div class="status" id="status">待命</div>
+        </header>
+
+        <div class="controls" role="toolbar" aria-label="语音输入控制">
+          <button class="record-button" id="recordButton" type="button" aria-pressed="false">
+            <span class="record-dot"></span>
+            <span id="recordLabel">开始</span>
+          </button>
+          <select id="styleSelect" aria-label="整理风格">
+            <option value="natural">自然文本</option>
+            <option value="message">聊天消息</option>
+            <option value="email">邮件</option>
+            <option value="bullets">要点</option>
+            <option value="tasks">待办</option>
+          </select>
+          <button id="polishButton" type="button">整理</button>
+          <button id="copyButton" type="button">复制</button>
+          <button id="clearButton" type="button">清空</button>
+        </div>
+
+        <section class="panes" aria-label="语音文本">
+          <article class="pane">
+            <div class="pane-header">
+              <h2>原始口述</h2>
+              <span id="wordCount">0 字</span>
+            </div>
+            <textarea id="transcript" spellcheck="false"></textarea>
+          </article>
+          <article class="pane">
+            <div class="pane-header">
+              <h2>整理稿</h2>
+              <span id="modelBadge">本地</span>
+            </div>
+            <textarea id="polished" spellcheck="false"></textarea>
+          </article>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
